@@ -62,7 +62,7 @@ class CategoryController extends Controller
             );
         }
 
-        return back()->with('toast_success', 'Kategori Berhasil Diubah');
+        return back();
     }
 
     /**

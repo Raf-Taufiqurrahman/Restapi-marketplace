@@ -21,9 +21,47 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.category.index') }}" class=" waves-effect">
-                        <i class="ri-price-tag-3-line"></i>
+                    <a href="{{ route('admin.category.index') }}" class="waves-effect">
+                        <i class="ri-price-tag-3-fill"></i>
                         <span>Category</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.product.index') }}" class="waves-effect">
+                        <i class="ri-shopping-bag-3-fill"></i>
+                        <span>Product</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="waves-effect">
+                        <i class="ri-slideshow-fill"></i>
+                        <span>Slider</span>
+                    </a>
+                </li>
+                <li class="menu-title">Stock</li>
+                <li>
+                    <a href="#" class="waves-effect">
+                        <i class="ri-add-circle-fill"></i>
+                        <span>Stock Product</span>
+                    </a>
+                </li>
+                <li class="menu-title">Report</li>
+                <li>
+                    <a href="#" class="waves-effect">
+                        <i class=" ri-currency-fill"></i>
+                        <span>Transaction</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="waves-effect">
+                        <i class=" ri-team-fill"></i>
+                        <span>Customer</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="waves-effect">
+                        <i class="ri-user-star-fill"></i>
+                        <span>Product Review</span>
                     </a>
                 </li>
             </ul>
