@@ -13,7 +13,7 @@
         </div>
         <div id="sidebar-menu">
             <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title">Menu</li>
+                <li class="menu-title">Master Data</li>
                 <li>
                     <a href="{{ route('admin.dashboard') }}" class="waves-effect">
                         <i class="ri-function-fill"></i>
@@ -38,7 +38,13 @@
                         <span>Slider</span>
                     </a>
                 </li>
-                <li class="menu-title">Stock</li>
+                <li>
+                    <a href="{{ route('admin.coupon.index') }}" class="waves-effect">
+                        <i class="ri-coupon-fill"></i>
+                        <span>Coupon</span>
+                    </a>
+                </li>
+                <li class="menu-title">Manage Stock</li>
                 <li>
                     <a href="#" class="waves-effect">
                         <i class="ri-add-circle-fill"></i>
