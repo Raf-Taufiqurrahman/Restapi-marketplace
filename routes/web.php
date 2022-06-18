@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CouponController;
+use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -26,4 +27,5 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth' ], f
     Route::resource('/category', CategoryController::class)->only('index', 'store', 'update', 'destroy');
     Route::resource('/product', ProductController::class);
     Route::resource('/coupon', CouponController::class)->only('index', 'store', 'destroy');
+    Route::get('/customer', CustomerController::class)->name('customer');
 });
