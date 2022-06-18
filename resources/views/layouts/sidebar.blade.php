@@ -59,7 +59,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="waves-effect">
+                    <a href="{{ route('admin.customer') }}" class="waves-effect">
                         <i class=" ri-team-fill"></i>
                         <span>Customer</span>
                     </a>
