@@ -33,7 +33,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="waves-effect">
+                    <a href="{{ route('admin.slider.index') }}" class="waves-effect">
                         <i class="ri-slideshow-fill"></i>
                         <span>Slider</span>
                     </a>
