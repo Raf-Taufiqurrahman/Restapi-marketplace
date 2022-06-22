@@ -46,7 +46,7 @@
                 </li>
                 <li class="menu-title">Manage Stock</li>
                 <li>
-                    <a href="#" class="waves-effect">
+                    <a href="{{ route('admin.stock.index') }}" class="waves-effect">
                         <i class="ri-add-circle-fill"></i>
                         <span>Stock Product</span>
                     </a>
