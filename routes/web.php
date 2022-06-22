@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\StockController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,4 +31,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth' ], f
     Route::resource('/coupon', CouponController::class)->only('index', 'store', 'destroy');
     Route::get('/customer', CustomerController::class)->name('customer');
     Route::resource('/slider', SliderController::class)->only('index', 'store', 'destroy');
+    Route::controller(StockController::class)->as('stock.')->group(function(){
+        Route::get('/stock', 'index')->name('index');
+        Route::put('/stock/{product}', 'update')->name('update');
+    });
 });

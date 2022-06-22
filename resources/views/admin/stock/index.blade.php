@@ -1,12 +1,9 @@
-@extends('layouts.master', ['title' => 'Product - Marketplace'])
+@extends('layouts.master', ['title' => 'Stock Product - Marketplace'])
 
 @section('content')
     <div class="row">
         <div class="col-12">
-            <a href="{{ route('admin.product.create') }}" class="btn btn-success mb-3 waves-effect waves-light">
-                <i class="fas fa-plus-circle me-1"></i> Add Product
-            </a>
-            <x-card title="Product">
+            <x-card title="Stock Product">
                 <table id="scroll-vertical-datatable" class="table dt-responsive nowrap w-100">
                     <thead>
                         <tr>
@@ -14,8 +11,7 @@
                             <th>Image</th>
                             <th>Name</th>
                             <th>Category</th>
-                            <th>Price</th>
-                            <th>Discount</th>
+                            <th>Stock</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -28,14 +24,19 @@
                                 </td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->category->name }}</td>
-                                <td>{{ moneyFormat($product->price) }}</td>
-                                <td>{{ $product->discount }} %</td>
+                                <td>{{ $product->stock }}</td>
                                 <td>
-                                    <a href="{{ route('admin.product.edit', $product->id) }}"
-                                        class="btn btn-info waves-effect waves-light btn-sm">
-                                        <i class="fas fa-edit me-1"></i> Edit
-                                    </a>
-                                    <x-button-delete :id="$product->id" title="Delete" :url="route('admin.product.destroy', $product->id)" />
+                                    <x-button-modal-center :id="$product->id" title="Add Stock" />
+                                    <x-modal-center :id="$product->id" title="Add Stock">
+                                        <form action="{{ route('admin.stock.update', $product->id) }}" method="POST">
+                                            @csrf @method('PUT')
+                                            <x-input title="Stock" type="number" :value="$product->stock" placeholder=""
+                                                name="stock" />
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                                <i class="fas fa-save me-1"></i> Update
+                                            </button>
+                                        </form>
+                                    </x-modal-center>
                                 </td>
                             </tr>
                         @endforeach
