@@ -11,7 +11,7 @@ class SliderController extends Controller
 {
     public function landing()
     {
-        $sliders = Slider::latest();
+        $sliders = Slider::get();
 
         return SliderResource::collection($sliders);
     }
