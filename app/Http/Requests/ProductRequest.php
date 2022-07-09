@@ -26,7 +26,7 @@ class ProductRequest extends FormRequest
         if(request()->isMethod('POST')){
             $data = [
                 'name' => 'required|unique:products',
-                'image' => 'required|mimes:png,jpg,jpeg|max:2048',
+                'image' => 'required|mimes:png,jpg,jpeg',
                 'category_id' => 'required',
                 'price' => 'required',
                 'description' => 'required',
@@ -35,7 +35,7 @@ class ProductRequest extends FormRequest
         }elseif(request()->isMethod('PUT')){
             $data = [
                 'name' => 'required','unique:products,name'.$this->id,
-                'image' => 'mimes:png,jpg,jpeg|max:2048',
+                'image' => 'mimes:png,jpg,jpeg',
                 'category_id' => 'required',
                 'price' => 'required',
                 'description' => 'required',

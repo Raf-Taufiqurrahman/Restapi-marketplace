@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ProductLandingResource extends JsonResource
@@ -17,10 +18,11 @@ class ProductLandingResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'slug' => $this->slug,
             'image' => $this->image,
             'price' => $this->price,
             'discount' => $this->discount,
-            'description' => substr($this->description, 0, 50),
+            'description' => Str::limit($this->description, 50),
             'category' => $this->category->name,
         ];
     }
