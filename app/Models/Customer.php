@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use App\Traits\Scope;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Customer extends Authenticatable
+class Customer extends Authenticatable implements JWTSubject
 {
     use HasFactory, Scope;
 
@@ -28,4 +30,30 @@ class Customer extends Authenticatable
         'password',
         'remember_token',
     ];
+        protected function avatar() : Attribute
+        {
+            return Attribute::make(
+                get: fn ($value) => 'https://ui-avatars.com/api/?name=' . str_replace(' ', '+', $this->name) . '&background=4e73df&color=ffffff&size=100',
+            );
+        }
+
+        /**
+     * getJWTIdentifier
+     *
+     * @return void
+     */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * getJWTCustomClaims
+     *
+     * @return void
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
 }
