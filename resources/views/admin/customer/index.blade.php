@@ -1,4 +1,4 @@
-@extends('layouts.master', ['title' => 'Category - Marketplace'])
+@extends('layouts.master', ['title' => 'Customer - Marketplace'])
 
 @section('content')
     <div class="row">
@@ -9,10 +9,10 @@
                         <thead class="table-light">
                             <tr>
                                 <th>#</th>
-                                <th>Customer Image</th>
-                                <th>Customer Name</th>
-                                <th>Customer Email</th>
-                                <th>Customer Join</th>
+                                <th>Foto</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Join</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -20,7 +20,7 @@
                                 <tr>
                                     <th scope="row">{{ $i + $customers->firstItem() }}</th>
                                     <td>
-                                        <img src="{{ $customer->image }}" alt="{{ $customer->name }}"
+                                        <img src="{{ $customer->avatar }}" alt="{{ $customer->name }}"
                                             class="rounded avatar-sm">
                                     </td>
                                     <td>{{ $customer->name }}</td>
