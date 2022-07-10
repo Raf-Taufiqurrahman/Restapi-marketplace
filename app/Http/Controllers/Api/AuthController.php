@@ -15,12 +15,6 @@ class AuthController extends Controller
 {
     public function register(RegisterRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name'     => 'required|string|max:255',
-            'email'    => 'required|email|unique:customers',
-            'password' => 'required|confirmed',
-        ]);
-
         $customer = Customer::create([
             'name'      => $request->name,
             'email'     => $request->email,
@@ -63,7 +57,7 @@ class AuthController extends Controller
     {
         return response()->json([
             'success' => true,
-            'user'    => auth()->user()
+            'user'    => auth()->guard('api')->user()
         ], 200);
     }
 }
